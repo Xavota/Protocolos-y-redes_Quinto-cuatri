@@ -71,13 +71,14 @@ void Game::init()
 	CTexture::AddTexture("Mapa", "Mapa.jpg");
 
 	m_map.setTexture(CTexture::getTexture("Mapa"));
-	m_map.setSize((sf::Vector2f)CTexture::getTexture("Mapa")->getSize() * 3.f);
+	m_map.setSize((sf::Vector2f)CTexture::getTexture("Mapa")->getSize() * 3.5f);
 	m_map.setPosition({ -2000,-2000 });
 
 	m_actor = new Actor();
 	m_actor->AddComponent(new Movimiento(200.f));
-	m_actor->AddComponent(new Mesh((sf::Vector2f)CTexture::getTexture("Amongos rojo")->getSize() * .16f,CTexture::getTexture("Amongos rojo")));
+	//m_actor->AddComponent(new Mesh((sf::Vector2f)CTexture::getTexture("Amongos rojo")->getSize() * .16f,CTexture::getTexture("Amongos rojo")));
 	m_actor->Init();
+	m_actor->getComponent<Movimiento>();
 }
 
 void Game::update()

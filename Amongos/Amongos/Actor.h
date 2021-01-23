@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <iostream>
 #include "Component.h"
 
 class Actor
@@ -16,6 +17,8 @@ public:
 	void AddComponent(Component* comp);
 	sf::Vector2f getPosition() { return m_pos; }
 	void setPosition(sf::Vector2f newPos) { m_pos = newPos; }
+	template<class T> 
+	T* getComponent();
 private:
 	friend class Component;
 	friend class Movimiento;
