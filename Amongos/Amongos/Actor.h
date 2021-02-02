@@ -8,6 +8,7 @@ class Actor
 {
 public:
 	Actor();
+	Actor(sf::Vector2f pos);
 	~Actor();
 	void Init();
 	void Update();
@@ -19,6 +20,7 @@ public:
 	void setPosition(sf::Vector2f newPos) { m_pos = newPos; }
 	template<class T> 
 	T* getComponent();
+	//Component* getComponent();
 private:
 	friend class Component;
 	friend class Movimiento;

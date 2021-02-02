@@ -1,8 +1,15 @@
 #include "Actor.h"
 #include "Game.h"
+#include "Movimiento.h"
+#include "Mesh.h"
 
 Actor::Actor()
 {
+}
+
+Actor::Actor(sf::Vector2f pos)
+{
+	m_pos = pos;
 }
 
 Actor::~Actor()
@@ -40,9 +47,10 @@ void Actor::AddComponent(Component* comp)
 
 template<class T>
 T* Actor::getComponent()
+//Component* Actor::getComponent()
 {
 	for (int i = 0; i < m_comps.size(); i++) {
-		if (std::is_same<T, m_comps[i]>())
+		if (dynamic_cast<T*>(m_comps[i]))
 			std::cout << "si" << std::endl;
 	}
 	return nullptr;

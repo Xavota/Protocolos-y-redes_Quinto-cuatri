@@ -153,15 +153,18 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CConection.cpp" />
     <ClCompile Include="CFont.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="DeltaTime.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="MenuManager.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Movimiento.cpp" />
+    <ClCompile Include="MultiplayerGameState.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UIShape.cpp" />
@@ -169,16 +172,19 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CConection.h" />
     <ClInclude Include="CFont.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="DeltaTime.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameServer.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MenuManager.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Movimiento.h" />
+    <ClInclude Include="MultiplayerGameState.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIShape.h" />
   </ItemGroup>

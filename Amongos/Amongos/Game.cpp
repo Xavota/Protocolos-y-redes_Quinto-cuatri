@@ -2,7 +2,8 @@
 #include "Globals.h"
 #include "Movimiento.h"
 #include "Mesh.h"
-
+#include <iostream>
+using namespace std;
 
 sf::RenderWindow* Game::m_window;
 sf::CircleShape Game::m_shape;
@@ -65,27 +66,29 @@ void Game::processEvents()
 
 void Game::init()
 {
-	m_window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Chess");
+	m_window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Amongos");
 
-	CTexture::AddTexture("Amongos rojo", "amongs_rojo.png");
-	CTexture::AddTexture("Mapa", "Mapa.jpg");
+	CTexture::AddTexture("Amongos morado", "amongs_morado.png");
+	CTexture::AddTexture("Mapa", "mapa.png");
 
 	m_map.setTexture(CTexture::getTexture("Mapa"));
-	m_map.setSize((sf::Vector2f)CTexture::getTexture("Mapa")->getSize() * 3.5f);
-	m_map.setPosition({ -2000,-2000 });
+	m_map.setSize((sf::Vector2f)CTexture::getTexture("Mapa")->getSize());
+	m_map.setPosition({ 0,0 });
 
-	m_actor = new Actor();
+	m_actor = new Actor({4850, 1000});
 	m_actor->AddComponent(new Movimiento(200.f));
-	//m_actor->AddComponent(new Mesh((sf::Vector2f)CTexture::getTexture("Amongos rojo")->getSize() * .16f,CTexture::getTexture("Amongos rojo")));
+	m_actor->AddComponent(new Mesh({100, 140},CTexture::getTexture("Amongos morado")));
 	m_actor->Init();
-	m_actor->getComponent<Movimiento>();
+	//m_actor->getComponent<Movimiento>();
 }
 
 void Game::update()
 {
 	m_actor->Update();
 
-	m_window->setView(sf::View({ m_actor->m_pos }, {1920,1080}));
+	static float zoom = 0;
+	zoom += gl::DeltaTime::Time();
+	m_window->setView(sf::View({ m_actor->m_pos }, {1920 / zoom ,1080 / zoom}));
 }
 
 void Game::render()
