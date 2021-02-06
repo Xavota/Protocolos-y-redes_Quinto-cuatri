@@ -14,11 +14,13 @@ public:
 	CConection();
 	~CConection();
 
-	Message ReciveMessage();
-	void SendMessage(Message msg);
+	bool MakeConection(const unsigned short& port);
+	void SendMessage(Message msg, sf::IpAddress adress, const unsigned short& port);
+	sf::Socket::Status ReciveMessage(Message& msg, sf::IpAddress& senderAdress, unsigned short& senderPort);
 
 private:
-	sf::TcpSocket m_socket;
-	sf::TcpListener m_listener;
+	friend class CNetworkManager;
+	sf::UdpSocket m_socket;
+	unsigned short m_port;
 };
 

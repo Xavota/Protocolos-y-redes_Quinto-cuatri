@@ -10,6 +10,7 @@ sf::CircleShape Game::m_shape;
 sf::Time Game::timePerFrame = sf::seconds(1.f / 60.f);
 Actor* Game::m_actor = nullptr;
 sf::RectangleShape Game::m_map;
+CNetworkManager Game::m_netManager;
 
 Game::~Game()
 {
@@ -80,15 +81,17 @@ void Game::init()
 	m_actor->AddComponent(new Mesh({100, 140},CTexture::getTexture("Amongos morado")));
 	m_actor->Init();
 	//m_actor->getComponent<Movimiento>();
+	int isServer;
+	std::cin >> isServer;
+	m_netManager.Init(isServer != 0,54000);
+	m_netManager.Start();
 }
 
 void Game::update()
 {
 	m_actor->Update();
 
-	static float zoom = 0;
-	zoom += gl::DeltaTime::Time();
-	m_window->setView(sf::View({ m_actor->m_pos }, {1920 / zoom ,1080 / zoom}));
+	m_window->setView(sf::View({ m_actor->m_pos }, {1920 ,1080}));
 }
 
 void Game::render()
@@ -101,4 +104,5 @@ void Game::render()
 
 void Game::destroy()
 {
+	m_netManager.CloseServer();
 }

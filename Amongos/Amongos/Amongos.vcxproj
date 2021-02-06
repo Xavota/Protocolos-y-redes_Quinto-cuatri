@@ -155,6 +155,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CConection.cpp" />
     <ClCompile Include="CFont.cpp" />
+    <ClCompile Include="CNetworkManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="DeltaTime.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="CConection.h" />
     <ClInclude Include="CFont.h" />
+    <ClInclude Include="CNetworkManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="DeltaTime.h" />

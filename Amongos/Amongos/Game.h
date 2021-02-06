@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Actor.h"
+#include "CNetworkManager.h"
 
 class Game
 {
@@ -28,5 +29,7 @@ private:
 
 	static Actor* m_actor;
 	static sf::RectangleShape m_map;
+
+	static CNetworkManager m_netManager;
 };
 
