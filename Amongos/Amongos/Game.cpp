@@ -105,4 +105,15 @@ void Game::render()
 void Game::destroy()
 {
 	m_netManager.CloseServer();
+
+	if (m_actor != nullptr)
+	{
+		delete m_actor;
+		m_actor = nullptr;
+	}
+	if (m_window != nullptr)
+	{
+		delete m_window;
+		m_window = nullptr;
+	}
 }

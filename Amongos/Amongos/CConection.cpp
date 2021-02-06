@@ -7,6 +7,7 @@ CConection::CConection()
 
 CConection::~CConection()
 {
+	
 }
 
 bool CConection::MakeConection(unsigned const short& port)

@@ -23,8 +23,6 @@ private:
 private:
 	static sf::RenderWindow* m_window;
 
-	static sf::CircleShape m_shape;
-
 	static sf::Time timePerFrame;
 
 	static Actor* m_actor;

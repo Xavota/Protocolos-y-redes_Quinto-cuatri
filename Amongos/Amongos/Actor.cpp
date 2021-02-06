@@ -38,6 +38,15 @@ void Actor::Render()
 
 void Actor::Destroy()
 {
+	for (Component* comp : m_comps)
+	{
+		if (comp != nullptr)
+		{
+			delete comp;
+			comp = nullptr;
+		}
+	}
+	m_comps.clear();
 }
 
 void Actor::AddComponent(Component* comp)
